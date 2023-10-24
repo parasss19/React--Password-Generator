@@ -13,8 +13,8 @@ import { useCallback, useState, useEffect } from 'react'
 //    const passGenerator = useCallback(()=>{
 
 //     //in pass we contain the generated password
-//     let pass = "";
 //     let str = "ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";     
+//     let pass = "";
 
 //     if(numAllow) str += '0123456789'         //if numAllow is true then add number in str
 //     if(charAllow) str += '!@#%^&*()~{}[]'    //if charAllow is true then add character in str
@@ -53,19 +53,18 @@ function App() {
  
   //Password generator function 
    const passGenerator = useCallback(()=>{
-    let pass = "";
-    let str = "ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";     
+     let pass = "";
+     let str = "ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";     
 
     if(numAllow) str += '0123456789'         
     if(charAllow) str += '!@#%^&*()~{}[]'    
  
      for(let i = 1; i<= length; i++){
       let char = Math.floor(Math.random() * str.length + 1)
-      
       pass += str.charAt(char)
      }
-     setPassword(pass)
 
+     setPassword(pass)
    }, [length, numAllow, charAllow,setPassword] )
 
   //pass generator
@@ -81,7 +80,7 @@ function App() {
 
   return (
     <>
-    <div className='w-full max-w-xl h-auto rounded-lg text-orange-700 shadow-lg px-5 py-3  mt-10 mx-auto bg-gray-600'>
+    <div className='w-full max-w-xl  rounded-lg shadow-xl px-5 py-3  mt-52 mx-auto bg-gray-600/60'>
       
       <h1 className='text-white text-center pb-6 text-3xl'>Password Generator</h1>
 
@@ -126,9 +125,8 @@ function App() {
          <input 
          type='checkbox'
          defaultChecked={numAllow}
-         id='numberInput'
          onChange={() => {
-             setnumAllow((prev)=> !prev
+             setnumAllow((prev)=> !prev 
              )
          }}
          />
@@ -141,7 +139,6 @@ function App() {
          <input 
          type='checkbox'
          defaultChecked={charAllow}
-         id='numberInput'
          onChange={() => {
              setcharAllow((prev)=> !prev
              )
